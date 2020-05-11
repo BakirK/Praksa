@@ -1,0 +1,28 @@
+{
+  "menus": [
+    {
+      "name": "Employee",
+      "menus": []
+    },
+    {
+      "name": "Project",
+      "menus": []
+    },
+    {
+      "name": "Statistics",
+      "menus": []
+    },
+    {
+      "name": "Availability",
+      "menus": []
+    },
+    {
+      "name": "Reports",
+      "menus": []
+    },
+    {
+      "name": "Registries",
+      "menus": []
+    }
+  ]
+}
