@@ -1,28 +1,52 @@
 {
   "menus": [
     {
-      "name": "Employee",
-      "menus": []
-    },
-    {
-      "name": "Project",
-      "menus": []
+      "name": "Availability",
+      "menus": [],
+      "href": "#",
+      "icon": "faIdCard"
     },
     {
       "name": "Statistics",
-      "menus": []
-    },
-    {
-      "name": "Availability",
-      "menus": []
+      "menus": [],
+      "href": "#",
+      "icon": "faHandshake"
     },
     {
       "name": "Reports",
-      "menus": []
+      "menus": [],
+      "href": "#",
+      "icon": "faUserCog"
+    },
+    {
+      "name": "Server",
+      "menus": [],
+      "href": "#",
+      "icon": "faServer"
     },
     {
       "name": "Registries",
-      "menus": []
+      "menus": [],
+      "href": "#",
+      "icon": "faShareSquare"
+    },
+    {
+      "name": "Project",
+      "menus": [],
+      "href": "#",
+      "icon": "faCalendarCheck"
+    },
+    {
+      "name": "Employee",
+      "menus": [],
+      "href": "#",
+      "icon": "faFile"
+    },
+    {
+      "name": "Compress",
+      "menus": [],
+      "href": "#",
+      "icon": "faCompressAlt"
     }
   ]
 }
