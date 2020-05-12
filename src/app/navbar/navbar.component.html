@@ -1,9 +1,9 @@
 <ul>
-  <ul>
-    <li *ngFor="let menu of menus">
-      {{ menu.name }}
-    </li>
-  </ul>
-  <fa-icon [icon]="faCoffee"></fa-icon>
-  <img src="https://img.icons8.com/android/24/000000/compress.png" />
+  <li *ngFor="let menu of menus">
+    <a href="menu.href">
+      <fa-icon [icon]="icons[menu.icon]"></fa-icon>
+    </a>
+  </li>
 </ul>
+<img src="https://img.icons8.com/android/24/000000/compress.png" />
+<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
