@@ -1,9 +1,44 @@
-<ul>
-  <li *ngFor="let menu of menus">
-    <a href="menu.href">
-      <fa-icon [icon]="icons[menu.icon]"></fa-icon>
-    </a>
-  </li>
-</ul>
-<img src="https://img.icons8.com/android/24/000000/compress.png" />
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-nav-list>
+      <ul>
+        <li *ngFor="let menu of menus" class="menu-item">
+          <a mat-list-item href="menu.href">
+            <fa-icon [icon]="icons[menu.icon]" class="menu-icon"></fa-icon>
+          </a>
+        </li>
+      </ul>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>frontend-app</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

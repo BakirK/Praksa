@@ -1,0 +1,42 @@
+@import "colors";
+@import "typography";
+@import "marginpadding";
+
+.menu-item {
+  a {
+    color: $menu-item;
+    .menu-icon {
+      width: 90%;
+      font-size: $menu-items;
+      text-align: center;
+      margin: 4px 0 4px 0;
+      transform: scale(2.5, 2);
+    }
+  }
+  border-bottom: 1px solid $light-blue;
+  padding: 4px;
+  list-style-type: none;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  background-color: $dark-blue;
+  color: $menu-item;
+  ul {
+    padding-left: 0;
+  }
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
