@@ -19,7 +19,14 @@
       </button>
     </mat-toolbar>
     <mat-nav-list class="navigation-list">
-      <div *ngFor="let menu of menus">
+      <div
+        #tooltip="matTooltip"
+        *ngFor="let menu of menus"
+        matTooltip="{{ menu.name }}"
+        matTooltipPosition="right"
+        matTooltipClass="tooltip"
+        (click)="tooltip.hide()"
+      >
         <a mat-list-item href="{{ menu.href }}" class="navigation-item">
           <fa-icon
             [icon]="icons[menu.icon]"
@@ -28,16 +35,44 @@
           ></fa-icon>
           <label class="navigation-item-label">{{ menu.name }}</label>
         </a>
-        <mat-divider class="navigation-divider"></mat-divider>
+        <mat-divider class="h-navigation-divider"></mat-divider>
       </div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-content">
-    <mat-toolbar class="sidenav-content-toolbar" color="primary">
+    <mat-toolbar class="sidenav-content-toolbar" color="dark">
       <a class="home-button" href="#drawer">
         <img class="app-logo" src="../../assets/images/logo.svg" />
       </a>
-      <span class="filler"> </span>
+      <span>Application Title</span>
+
+      <!-- This fills the remaining space of the current row -->
+      <span class="filler"></span>
+      <a class="navbar-link" href="#">
+        <fa-icon
+          [icon]="icons['faUserCircle']"
+          size="md"
+          [fixedWidth]="true"
+        ></fa-icon>
+      </a>
+
+      <mat-divider [vertical]="true" class="v-navigation-divider"></mat-divider>
+      <a class="navbar-link" href="#">
+        <fa-icon
+          [icon]="icons['faBell']"
+          size="md"
+          [fixedWidth]="true"
+        ></fa-icon>
+      </a>
+
+      <mat-divider [vertical]="true" class="v-navigation-divider"></mat-divider>
+      <a class="navbar-link" href="#">
+        <fa-icon
+          [icon]="icons['faPowerOff']"
+          size="md"
+          [fixedWidth]="true"
+        ></fa-icon>
+      </a>
     </mat-toolbar>
   </mat-sidenav-content>
 </mat-sidenav-container>

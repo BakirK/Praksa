@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { faBell, faCalendarCheck, faUserCircle } from '@fortawesome/free-regular-svg-icons';
 import {
-  faCalendarCheck,
   faCoffee,
   faCompressAlt,
   faCopy,
   faFile,
   faHandshake,
   faIdCard,
+  faPowerOff,
   faServer,
   faShareSquare,
   faUserCog,
@@ -22,7 +22,6 @@ import * as menu from 'src/assets/menu/menu.json';
 })
 export class NavbarComponent {
   menus: Menu[] = menu.menus;
-  mode = new FormControl('over');
   icons = {
     faCoffee: faCoffee,
     faCopy: faCopy,
@@ -34,6 +33,9 @@ export class NavbarComponent {
     faShareSquare: faShareSquare,
     faCalendarCheck: faCalendarCheck,
     faCompressAlt: faCompressAlt,
+    faUserCircle: faUserCircle,
+    faBell: faBell,
+    faPowerOff: faPowerOff,
   };
   constructor() {}
 }
