@@ -2,43 +2,42 @@
   <mat-sidenav
     #drawer
     class="sidenav"
-    fixedInViewport
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="(isHandset$ | async) === false"
+    fixedInViewport="true"
+    [attr.role]="'navigation'"
+    mode="'over'"
+    opened="false"
   >
     <mat-toolbar>
       <button
+        mat-icon-button
+        class="menu-button"
         type="button"
         aria-label="Toggle sidenav"
-        mat-icon-button
         (click)="drawer.toggle()"
       >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        <i class="material-icons">menu</i>
       </button>
     </mat-toolbar>
-    <mat-nav-list>
-      <ul>
-        <li *ngFor="let menu of menus" class="menu-item">
-          <a mat-list-item href="menu.href">
-            <fa-icon [icon]="icons[menu.icon]" class="menu-icon"></fa-icon>
-          </a>
-        </li>
-      </ul>
+    <mat-nav-list class="navigation-list">
+      <div *ngFor="let menu of menus">
+        <a mat-list-item href="{{ menu.href }}" class="navigation-item">
+          <fa-icon
+            [icon]="icons[menu.icon]"
+            size="lg"
+            [fixedWidth]="true"
+          ></fa-icon>
+          <label class="navigation-item-label">{{ menu.name }}</label>
+        </a>
+        <mat-divider class="navigation-divider"></mat-divider>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-      >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>frontend-app</span>
+  <mat-sidenav-content class="sidenav-content">
+    <mat-toolbar class="sidenav-content-toolbar" color="primary">
+      <a class="home-button" href="#">
+        <img class="app-logo" src="../../assets/images/logo.svg" />
+      </a>
+      <span class="filler"> </span>
     </mat-toolbar>
-    <!-- Add Content Here -->
   </mat-sidenav-content>
 </mat-sidenav-container>
