@@ -107,3 +107,7 @@ mat-sidenav:not(.mat-drawer-opened) .navigation-item-label {
     $display: none;
   }
 }
+
+.main-content {
+  margin-left: $nav-width;
+}

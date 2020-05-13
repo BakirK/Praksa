@@ -4,7 +4,7 @@
     class="sidenav"
     fixedInViewport="true"
     [attr.role]="'navigation'"
-    mode="'over'"
+    [mode]="'over'"
     opened="false"
   >
     <mat-toolbar>
@@ -18,7 +18,7 @@
         <i class="material-icons">menu</i>
       </button>
     </mat-toolbar>
-    <mat-nav-list class="navigation-list">
+    <mat-nav-list class="navigation-list" style="display: block;">
       <div
         #tooltip="matTooltip"
         *ngFor="let menu of menus"
@@ -77,5 +77,10 @@
         ></fa-icon>
       </a>
     </mat-toolbar>
+
+    <!-- body content goes here -->
+    <div class="main-content">
+      <app-hero-image></app-hero-image>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
