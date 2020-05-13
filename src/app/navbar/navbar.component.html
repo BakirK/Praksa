@@ -1,49 +1,5 @@
 <div class="container">
-  <mat-toolbar class="sidenav-content-toolbar" color="primary">
-    <div class="hamburger-container">
-      <button
-        mat-icon-button
-        class="menu-button"
-        type="button"
-        aria-label="Toggle sidenav"
-        (click)="drawer.toggle()"
-      >
-        <i class="material-icons">menu</i>
-      </button>
-    </div>
-
-    <a class="home-button" href="#drawer">
-      <img class="app-logo" src="../../assets/images/logo.svg" />
-    </a>
-
-    <!-- This fills the remaining space of the current row -->
-    <span class="filler"></span>
-    <div class="far-end">
-      <span>Authorized</span>
-      <span>Access</span>
-    </div>
-    <a class="navbar-link" href="#">
-      <fa-icon
-        [icon]="icons['faUserCircle']"
-        size="md"
-        [fixedWidth]="true"
-      ></fa-icon>
-    </a>
-
-    <mat-divider [vertical]="true" class="v-navigation-divider"></mat-divider>
-    <a class="navbar-link" href="#">
-      <fa-icon [icon]="icons['faBell']" size="md" [fixedWidth]="true"></fa-icon>
-    </a>
-
-    <mat-divider [vertical]="true" class="v-navigation-divider"></mat-divider>
-    <a class="navbar-link" href="#">
-      <fa-icon
-        [icon]="icons['faPowerOff']"
-        size="md"
-        [fixedWidth]="true"
-      ></fa-icon>
-    </a>
-  </mat-toolbar>
+  <app-nav-toolbar [icons]="icons" [drawer]="drawer"></app-nav-toolbar>
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav
       #drawer

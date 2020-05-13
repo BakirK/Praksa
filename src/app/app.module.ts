@@ -14,11 +14,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { HeroImageComponent } from './hero-image/hero-image.component';
+import { AppNavToolbarComponent } from './navbar/app-nav-toolbar/app-nav-toolbar.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidenavService } from './services/Sidenav.service';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HeroImageComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    HeroImageComponent,
+    AppNavToolbarComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,7 +42,7 @@ import { HeroImageComponent } from './hero-image/hero-image.component';
     MatListModule,
     MatTooltipModule,
   ],
-  providers: [],
+  providers: [SidenavService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

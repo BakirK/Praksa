@@ -2,7 +2,7 @@
 @import "typography";
 @import "marginpadding";
 @import "widthheight";
-@import "~compass-mixins/lib/compass/css3/box-shadow";
+
 .container {
   display: flex;
   flex-direction: column;
@@ -38,76 +38,6 @@
         border-color: $blue;
       }
     }
-  }
-}
-
-/*toolbar*/
-.sidenav-content-toolbar {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-  height: 60px;
-  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-  z-index: 2;
-  /*inset, drop and border shadow*/
-  box-shadow: 60px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    60px 4px 2px 0px rgba(0, 0, 0, 0.14), 60px 1px 10px 0px rgba(0, 0, 0, 0.12);
-  background: $toolbar-background;
-  color: $light-grey;
-  padding-left: $nav-width;
-  /*color hamburger same as menu*/
-  .hamburger-container {
-    min-width: $nav-width;
-    padding: 0;
-    margin: 0;
-    background: $dark-blue;
-    height: 100%;
-    .menu-button {
-      border-radius: 0%;
-      background: $dark-blue;
-      margin: 0 auto;
-      vertical-align: middle;
-      color: $light-blue;
-      height: 100%;
-      width: 100%;
-    }
-  }
-
-  /*logo*/
-  .home-button {
-    display: inline-block;
-    .app-logo {
-      width: $logo-width;
-      height: $logo-height;
-      margin: 0 auto;
-      display: block;
-    }
-  }
-  .navbar-link {
-    padding: $toolbar-link-padding;
-    color: $light-grey;
-    cursor: pointer;
-    filter: $greyscale-on;
-  }
-  .navbar-link:hover {
-    filter: $greyscale-off;
-  }
-  .filler {
-    // This fills the remaining space, by using flexbox.
-    // Every toolbar row uses a flexbox row layout.
-    flex: 1 1 auto;
-  }
-  .v-navigation-divider {
-    color: $light-grey;
-    height: $h-divider-height;
-  }
-  .far-end {
-    font-size: $access-font-size;
-    display: inline-grid;
-    color: $auth-color;
-    text-align: center;
-    margin: 0 auto;
-    line-height: $access-text-lineh;
-    vertical-align: middle;
   }
 }
 

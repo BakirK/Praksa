@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 import { faBell, faCalendarCheck, faUserCircle } from '@fortawesome/free-regular-svg-icons';
 import {
   faCoffee,
@@ -13,6 +14,7 @@ import {
   faUserCog,
 } from '@fortawesome/free-solid-svg-icons';
 import { Menu } from 'src/app/models/model';
+import { SidenavService } from 'src/app/services/Sidenav.service';
 import * as menu from 'src/assets/menu/menu.json';
 
 @Component({
@@ -20,7 +22,7 @@ import * as menu from 'src/assets/menu/menu.json';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent {
+export class NavbarComponent implements AfterViewInit {
   menus: Menu[] = menu.menus;
   icons = {
     faCoffee: faCoffee,
@@ -37,5 +39,11 @@ export class NavbarComponent {
     faBell: faBell,
     faPowerOff: faPowerOff,
   };
-  constructor() {}
+  @ViewChild('drawer') drawer: MatSidenav;
+
+  constructor(private sidenavService: SidenavService) {}
+
+  ngAfterViewInit(): void {
+    this.sidenavService.setSidenav(this.drawer);
+  }
 }
