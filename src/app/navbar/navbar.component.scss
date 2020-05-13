@@ -48,6 +48,12 @@
   height: 60px;
   /* Make sure the toolbar will stay on top of the content as it scrolls past. */
   z-index: 2;
+  /*inset, drop and border shadow*/
+  box-shadow: 60px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    60px 4px 2px 0px rgba(0, 0, 0, 0.14), 60px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  background: $toolbar-background;
+  color: $light-grey;
+  padding-left: $nav-width;
   /*color hamburger same as menu*/
   .hamburger-container {
     min-width: $nav-width;
@@ -66,12 +72,16 @@
     }
   }
 
-  /*inset, drop and border shadow*/
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-  background: $toolbar-background;
-  color: $light-grey;
-  padding-left: $nav-width;
+  /*logo*/
+  .home-button {
+    display: inline-block;
+    .app-logo {
+      width: $logo-width;
+      height: $logo-height;
+      margin: 0 auto;
+      display: block;
+    }
+  }
   .navbar-link {
     padding: $toolbar-link-padding;
     color: $light-grey;
@@ -108,38 +118,34 @@
 }
 
 /*left sidenav style override*/
-mat-sidenav:not(.mat-drawer-opened) {
-  transform: translate3d(0, 0, 0) !important;
+.mat-sidenav:not(.mat-drawer-opened) {
+  /*makes icons visible*/
+  transform: translate3d(0, 0, 0);
   visibility: visible !important;
   width: $nav-width !important;
   overflow: hidden;
 }
-/*hide items labels*/
-mat-sidenav:not(.mat-drawer-opened) .navigation-item-label {
-  display: none !important;
-}
 
-/*logo*/
-.home-button {
-  display: inline-block;
-  .app-logo {
-    width: $logo-width;
-    height: $logo-height;
-    margin: 0 auto;
-    display: block;
-  }
+/*hide items labels*/
+.mat-sidenav:not(.mat-drawer-opened) .navigation-item-label {
+  display: none !important;
 }
 
 ::ng-deep .mat-tooltip {
   font-size: $tooltip !important;
 }
 
-::ng-deep mat-sidenav:not(.mat-drawer-opened) {
-  .mat-tooltip {
-    $display: none;
-  }
-}
-
 .main-content {
   margin-left: $nav-width;
+}
+
+@media only screen and (max-width: 768px) {
+  .mat-sidenav:not(.mat-drawer-opened) {
+    transform: translate3d(100, 0, 0) !important;
+    visibility: hidden !important;
+    overflow: visible;
+  }
+  .mat-sidenav {
+    overflow: visible;
+  }
 }
