@@ -1,13 +1,6 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav
-    #drawer
-    class="sidenav"
-    fixedInViewport="true"
-    [attr.role]="'navigation'"
-    [mode]="'over'"
-    opened="false"
-  >
-    <mat-toolbar>
+<div class="container">
+  <mat-toolbar class="sidenav-content-toolbar" color="primary">
+    <div class="hamburger-container">
       <button
         mat-icon-button
         class="menu-button"
@@ -17,70 +10,78 @@
       >
         <i class="material-icons">menu</i>
       </button>
-    </mat-toolbar>
-    <mat-nav-list class="navigation-list" style="display: block;">
-      <div
-        #tooltip="matTooltip"
-        *ngFor="let menu of menus"
-        matTooltip="{{ menu.name }}"
-        matTooltipPosition="right"
-        matTooltipClass="tooltip"
-        (click)="tooltip.hide()"
-      >
-        <a mat-list-item href="{{ menu.href }}" class="navigation-item">
-          <fa-icon
-            [icon]="icons[menu.icon]"
-            size="lg"
-            [fixedWidth]="true"
-          ></fa-icon>
-          <label class="navigation-item-label">{{ menu.name }}</label>
-        </a>
-        <mat-divider class="h-navigation-divider"></mat-divider>
-      </div>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content class="sidenav-content">
-    <mat-toolbar class="sidenav-content-toolbar" color="dark">
-      <a class="home-button" href="#drawer">
-        <img class="app-logo" src="../../assets/images/logo.svg" />
-      </a>
-
-      <!-- This fills the remaining space of the current row -->
-      <span class="filler"></span>
-      <div class="far-end">
-        <span>Authorized</span>
-        <span>Access</span>
-      </div>
-      <a class="navbar-link" href="#">
-        <fa-icon
-          [icon]="icons['faUserCircle']"
-          size="md"
-          [fixedWidth]="true"
-        ></fa-icon>
-      </a>
-
-      <mat-divider [vertical]="true" class="v-navigation-divider"></mat-divider>
-      <a class="navbar-link" href="#">
-        <fa-icon
-          [icon]="icons['faBell']"
-          size="md"
-          [fixedWidth]="true"
-        ></fa-icon>
-      </a>
-
-      <mat-divider [vertical]="true" class="v-navigation-divider"></mat-divider>
-      <a class="navbar-link" href="#">
-        <fa-icon
-          [icon]="icons['faPowerOff']"
-          size="md"
-          [fixedWidth]="true"
-        ></fa-icon>
-      </a>
-    </mat-toolbar>
-
-    <!-- body content goes here -->
-    <div class="main-content">
-      <app-hero-image></app-hero-image>
     </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+
+    <a class="home-button" href="#drawer">
+      <img class="app-logo" src="../../assets/images/logo.svg" />
+    </a>
+
+    <!-- This fills the remaining space of the current row -->
+    <span class="filler"></span>
+    <div class="far-end">
+      <span>Authorized</span>
+      <span>Access</span>
+    </div>
+    <a class="navbar-link" href="#">
+      <fa-icon
+        [icon]="icons['faUserCircle']"
+        size="md"
+        [fixedWidth]="true"
+      ></fa-icon>
+    </a>
+
+    <mat-divider [vertical]="true" class="v-navigation-divider"></mat-divider>
+    <a class="navbar-link" href="#">
+      <fa-icon [icon]="icons['faBell']" size="md" [fixedWidth]="true"></fa-icon>
+    </a>
+
+    <mat-divider [vertical]="true" class="v-navigation-divider"></mat-divider>
+    <a class="navbar-link" href="#">
+      <fa-icon
+        [icon]="icons['faPowerOff']"
+        size="md"
+        [fixedWidth]="true"
+      ></fa-icon>
+    </a>
+  </mat-toolbar>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+      #drawer
+      class="sidenav"
+      fixedInViewport="false"
+      [attr.role]="'navigation'"
+      [mode]="'over'"
+      opened="false"
+      fixedTopGap="60"
+    >
+      <mat-nav-list class="navigation-list" style="display: block;">
+        <div
+          #tooltip="matTooltip"
+          *ngFor="let menu of menus; last as isLast"
+          matTooltip="{{ menu.name }}"
+          matTooltipPosition="right"
+          matTooltipClass="tooltip"
+          (click)="tooltip.hide()"
+        >
+          <a mat-list-item href="{{ menu.href }}" class="navigation-item">
+            <fa-icon
+              [icon]="icons[menu.icon]"
+              size="lg"
+              [fixedWidth]="true"
+            ></fa-icon>
+            <label class="navigation-item-label">{{ menu.name }}</label>
+          </a>
+          <div *ngIf="!isLast">
+            <mat-divider class="h-navigation-divider"></mat-divider>
+          </div>
+        </div>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav-content">
+      <!-- body content goes here -->
+      <div class="main-content">
+        <app-hero-image></app-hero-image>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
