@@ -52,6 +52,15 @@
     color: $light-grey;
     height: $h-divider-height;
   }
+  .far-end {
+    font-size: $access-font-size;
+    display: inline-grid;
+    color: $auth-color;
+    text-align: center;
+    margin: 0 auto;
+    line-height: $access-text-lineh;
+    vertical-align: middle;
+  }
 }
 
 .sidenav-container .mat-toolbar.mat-primary {
