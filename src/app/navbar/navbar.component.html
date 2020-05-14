@@ -19,7 +19,11 @@
           matTooltipClass="tooltip"
           (click)="tooltip.hide()"
         >
-          <a mat-list-item href="{{ menu.href }}" class="navigation-item">
+          <a
+            mat-list-item
+            routerLink="{{ menu.routerLink }}"
+            class="navigation-item"
+          >
             <fa-icon
               [icon]="icons[menu.icon]"
               size="lg"
@@ -35,9 +39,7 @@
     </mat-sidenav>
     <mat-sidenav-content class="sidenav-content">
       <!-- body content goes here -->
-      <div class="main-content">
-        <app-hero-image></app-hero-image>
-      </div>
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

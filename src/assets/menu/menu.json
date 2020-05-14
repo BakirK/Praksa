@@ -3,49 +3,49 @@
     {
       "name": "Availability",
       "menus": [],
-      "href": "#",
+      "routerLink": "form",
       "icon": "faIdCard"
     },
     {
       "name": "Statistics",
       "menus": [],
-      "href": "#",
+      "routerLink": "",
       "icon": "faHandshake"
     },
     {
       "name": "Reports",
       "menus": [],
-      "href": "#",
+      "routerLink": "",
       "icon": "faUserCog"
     },
     {
       "name": "Server",
       "menus": [],
-      "href": "#",
+      "routerLink": "",
       "icon": "faServer"
     },
     {
       "name": "Registries",
       "menus": [],
-      "href": "#",
+      "routerLink": "",
       "icon": "faShareSquare"
     },
     {
       "name": "Project",
       "menus": [],
-      "href": "#",
+      "routerLink": "",
       "icon": "faCalendarCheck"
     },
     {
       "name": "Employee",
       "menus": [],
-      "href": "#",
+      "routerLink": "",
       "icon": "faFile"
     },
     {
       "name": "Compress",
       "menus": [],
-      "href": "#",
+      "routerLink": "",
       "icon": "faCompressAlt"
     }
   ]

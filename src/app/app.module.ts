@@ -18,6 +18,7 @@ import { HeroImageComponent } from './hero-image/hero-image.component';
 import { AppNavToolbarComponent } from './navbar/app-nav-toolbar/app-nav-toolbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavService } from './services/Sidenav.service';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SidenavService } from './services/Sidenav.service';
     NavbarComponent,
     HeroImageComponent,
     AppNavToolbarComponent,
+    FormComponent,
   ],
   imports: [
     BrowserModule,

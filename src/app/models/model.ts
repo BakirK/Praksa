@@ -1,6 +1,6 @@
 export class Menu {
   name: string;
   menus: Menu[];
-  href: string;
+  routerLink: string;
   icon: string;
 }
