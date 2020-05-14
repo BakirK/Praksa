@@ -2,16 +2,17 @@
 @import "../typography";
 @import "../marginpadding";
 @import "../widthheight";
+@import "src/app/shared/device-width";
+
 /*toolbar*/
 .sidenav-content-toolbar {
-  padding-left: 0 !important;
+  padding: 0 !important;
   margin-left: 0 !important;
   height: $toolbar-height;
   position: relative;
   z-index: 10;
   /*inset, drop and border shadow*/
-  box-shadow: 60px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    60px 4px 2px 0px rgba(0, 0, 0, 0.14), 60px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: $toolbar-shadow;
   background: $toolbar-background;
   color: $light-grey;
   padding-left: $nav-width;
@@ -65,8 +66,26 @@
     display: inline-grid;
     color: $auth-color;
     text-align: center;
-    margin: 0 auto;
     line-height: $access-text-lineh;
     vertical-align: middle;
+  }
+}
+
+@media only screen and (max-width: $mobile) {
+  .far-end {
+    font-size: $access-font-size-mobile !important;
+  }
+  .app-logo {
+    width: $logo-width-mobile !important;
+    height: $logo-height-mobile !important;
+  }
+  .sidenav-content-toolbar {
+    height: $toolbar-height-mobile;
+  }
+  .hamburger-container {
+    min-width: $nav-width-mobile !important;
+  }
+  .sidenav-content-toolbar {
+    box-shadow: $toolbar-shadow-mobile;
   }
 }

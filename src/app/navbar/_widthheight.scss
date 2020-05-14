@@ -1,6 +1,17 @@
 $sidenav-width: 300px;
+$sidenav-width-mobile: 150px;
 $logo-height: 50px;
+$logo-height-mobile: 25px;
 $logo-width: 100px;
+$logo-width-mobile: 50px;
 $nav-width: 60px;
+$nav-width-mobile: 40px;
 $h-divider-height: 25px;
 $toolbar-height: 60px;
+$toolbar-height-mobile: 40px;
+$toolbar-shadow: $nav-width 2px 4px -1px rgba(0, 0, 0, 0.2),
+  $nav-width 4px 2px 0px rgba(0, 0, 0, 0.14),
+  $nav-width 1px 10px 0px rgba(0, 0, 0, 0.12);
+$toolbar-shadow-mobile: $nav-width-mobile 2px 4px -1px rgba(0, 0, 0, 0.2),
+  $nav-width-mobile 4px 2px 0px rgba(0, 0, 0, 0.14),
+  $nav-width-mobile 1px 10px 0px rgba(0, 0, 0, 0.12);

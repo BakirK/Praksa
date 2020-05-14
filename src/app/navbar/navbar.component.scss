@@ -2,6 +2,7 @@
 @import "typography";
 @import "marginpadding";
 @import "widthheight";
+@import "src/app/shared/device-width";
 
 .container {
   display: flex;
@@ -11,6 +12,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  overflow: hidden;
 }
 
 .sidenav-container {
@@ -61,6 +63,10 @@
   display: none !important;
 }
 
+.navigation-item-label {
+  font-size: $menu-label;
+}
+
 ::ng-deep .mat-tooltip {
   font-size: $tooltip !important;
 }
@@ -69,13 +75,39 @@
   margin-left: $nav-width;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: $tablet) {
   .mat-sidenav:not(.mat-drawer-opened) {
-    transform: translate3d(100, 0, 0) !important;
+    transform: translate3d(-$nav-width, 0, 0);
     visibility: hidden !important;
     overflow: visible;
   }
   .mat-sidenav {
     overflow: visible;
+  }
+  .sidenav-content {
+    margin-left: 0 !important;
+  }
+}
+
+@media only screen and (max-width: $mobile) {
+  .sidenav {
+    width: $sidenav-width-mobile !important;
+  }
+  .mat-sidenav:not(.mat-drawer-opened) {
+    /*makes icons visible*/
+    transform: translate3d(-$nav-width-mobile, 0, 0);
+    width: $nav-width-mobile !important;
+  }
+  .sidenav-content {
+    margin-left: $nav-width-mobile !important;
+  }
+  ::ng-deep .mat-tooltip {
+    font-size: $tooltip-mobile !important;
+  }
+  .navigation-item-label {
+    font-size: $menu-label-mobile;
+  }
+  .sidenav-content {
+    margin-left: 0 !important;
   }
 }
