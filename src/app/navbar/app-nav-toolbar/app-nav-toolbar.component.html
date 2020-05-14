@@ -21,25 +21,24 @@
     <span>Authorized</span>
     <span>Access</span>
   </div>
-  <a class="navbar-link" href="#">
-    <fa-icon
-      [icon]="icons['faUserCircle']"
-      size="md"
-      [fixedWidth]="true"
-    ></fa-icon>
-  </a>
+  <ng-container *ngFor="let toolbarIcon of toolbarIcons; last as isLast">
+    <!-- icons -->
+    <div class="row">
+      <a class="toolbar-link lg-12" routerLink="{{ toolbarIcon.routerLink }}">
+        <fa-icon
+          [icon]="icons[toolbarIcon.icon]"
+          size="md"
+          [fixedWidth]="true"
+        ></fa-icon>
+      </a>
+    </div>
 
-  <mat-divider [vertical]="true" class="v-navigation-divider"></mat-divider>
-  <a class="navbar-link" href="#">
-    <fa-icon [icon]="icons['faBell']" size="md" [fixedWidth]="true"></fa-icon>
-  </a>
-
-  <mat-divider [vertical]="true" class="v-navigation-divider"></mat-divider>
-  <a class="navbar-link" href="#">
-    <fa-icon
-      [icon]="icons['faPowerOff']"
-      size="md"
-      [fixedWidth]="true"
-    ></fa-icon>
-  </a>
+    <!-- vertical dividers -->
+    <div *ngIf="!isLast" class="row">
+      <mat-divider
+        [vertical]="true"
+        class="v-navigation-divider lg-12"
+      ></mat-divider>
+    </div>
+  </ng-container>
 </mat-toolbar>

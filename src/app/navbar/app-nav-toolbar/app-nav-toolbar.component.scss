@@ -6,7 +6,7 @@
 .sidenav-content-toolbar {
   padding-left: 0 !important;
   margin-left: 0 !important;
-  height: 60px;
+  height: $toolbar-height;
   position: relative;
   z-index: 10;
   /*inset, drop and border shadow*/
@@ -15,7 +15,6 @@
   background: $toolbar-background;
   color: $light-grey;
   padding-left: $nav-width;
-  /*color hamburger same as menu*/
   .hamburger-container {
     min-width: $nav-width;
     padding: 0;
@@ -43,13 +42,13 @@
       display: block;
     }
   }
-  .navbar-link {
+  .toolbar-link {
     padding: $toolbar-link-padding;
     color: $light-grey;
     cursor: pointer;
     filter: $greyscale-on;
   }
-  .navbar-link:hover {
+  .toolbar-link:hover {
     filter: $greyscale-off;
   }
   .filler {
@@ -57,9 +56,9 @@
     // Every toolbar row uses a flexbox row layout.
     flex: 1 1 auto;
   }
-  .v-navigation-divider {
+  ::ng-deep .v-navigation-divider {
     color: $light-grey;
-    height: $h-divider-height;
+    height: $h-divider-height !important;
   }
   .far-end {
     font-size: $access-font-size;

@@ -1,0 +1,19 @@
+{
+  "icons": [
+    {
+      "name": "User",
+      "routerLink": "",
+      "icon": "faUserCircle"
+    },
+    {
+      "name": "Notification",
+      "routerLink": "",
+      "icon": "faBell"
+    },
+    {
+      "name": "PowerOff",
+      "routerLink": "",
+      "icon": "faPowerOff"
+    }
+  ]
+}

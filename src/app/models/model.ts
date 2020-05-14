@@ -4,3 +4,9 @@ export class Menu {
   routerLink: string;
   icon: string;
 }
+
+export class ToolbarIcon {
+  name: string;
+  routerLink: string;
+  icon: string;
+}
