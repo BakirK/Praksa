@@ -1,1 +1,24 @@
-<p>form works!</p>
+<div class="operations">
+  <fa-icon
+    *ngFor="let icon of icons"
+    [icon]="icon"
+    size="lg"
+    [fixedWidth]="true"
+  ></fa-icon>
+</div>
+<ag-grid-angular
+  #agGrid
+  style="width: 80%; height: 500px; margin: 0 auto; vertical-align: middle;"
+  class="ag-theme-material"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+  [defaultColDef]="defaultColDef"
+  [columnTypes]="columnTypes"
+  rowSelection="multiple"
+  pagination
+  animateRows="true"
+  paginationPageSize="4"
+  [frameworkComponents]="frameworkComponents"
+  (gridReady)="onGridReady($event)"
+>
+</ag-grid-angular>
