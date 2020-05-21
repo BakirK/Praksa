@@ -5,7 +5,7 @@ import { FormComponent } from './form/form.component';
 import { HeroImageComponent } from './hero-image/hero-image.component';
 
 const routes: Routes = [
-  { path: 'home', component: HeroImageComponent },
+  { path: '', component: HeroImageComponent },
   {
     path: 'form',
     component: FormComponent,
