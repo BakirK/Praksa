@@ -6,7 +6,6 @@ import { INoRowsOverlayAngularComp } from 'ag-grid-angular';
   template: `
     <span>
       {{ value }}
-      <mat-divider style="border-color: 1px solid black"></mat-divider>
     </span>
   `,
 })

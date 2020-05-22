@@ -1,3 +1,4 @@
+/// <reference path="typings.d.ts" />
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import { ColumnsToolPanelModule } from '@ag-grid-enterprise/column-tool-panel';
 import { MenuModule } from '@ag-grid-enterprise/menu';
@@ -5,6 +6,7 @@ import { RichSelectModule } from '@ag-grid-enterprise/rich-select';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { faUserEdit, faUserPlus, faUserTimes } from '@fortawesome/free-solid-svg-icons';
 import { AgGridAngular } from 'ag-grid-angular';
+import $ from 'jquery';
 
 import { SelectRendererComponent } from './select-cell/select-cell-renderer.component';
 
@@ -15,7 +17,11 @@ import { SelectRendererComponent } from './select-cell/select-cell-renderer.comp
 })
 export class FormComponent implements OnInit {
   @ViewChild('agGrid') agGrid: AgGridAngular;
-  icons = [faUserTimes, faUserEdit, faUserPlus];
+  icons = {
+    faUserTimes: faUserTimes,
+    faUserEdit: faUserEdit,
+    faUserPlus: faUserPlus,
+  };
   private gridApi;
   private gridColumnApi;
 
@@ -28,15 +34,8 @@ export class FormComponent implements OnInit {
   public frameworkComponents = {
     SelectRendererComponent: SelectRendererComponent,
   };
-
-  columnTypes: {
-    textColumn: {
-      filter: 'agTextColumnFilter';
-    };
-
-    dateColumn: {
-      filter: 'agDateColumnFilter';
-    };
+  public components = {
+    datePicker: this.getDatePicker(),
   };
 
   defaultColDef = {
@@ -46,9 +45,10 @@ export class FormComponent implements OnInit {
     filter: 'agTextColumnFilter',
     floatingFilter: true,
     resizable: true,
-    // suppressMenu: true,
-    // supress filter icon
+    // supress filter and menu icon
+    suppressMenu: true,
     floatingFilterComponentParams: { suppressFilterButton: true },
+    headerClass: 'poglavlje',
   };
 
   columnDefs = [
@@ -75,6 +75,7 @@ export class FormComponent implements OnInit {
     {
       headerName: 'Status',
       field: 'status',
+      width: 165,
       cellRenderer: 'SelectRendererComponent',
       cellEditor: 'agRichSelectCellEditor',
       cellEditorParams: {
@@ -91,6 +92,14 @@ export class FormComponent implements OnInit {
     {
       headerName: 'Birth date',
       field: 'bdate',
+      filter: 'agDateColumnFilter',
+      // add extra parameters for the date filter
+      filterParams: {
+        // provide comparator function
+        comparator: this.dateComparator,
+      },
+      width: 200,
+      cellEditor: 'datePicker',
     },
     {
       headerName: 'Gender',
@@ -105,6 +114,13 @@ export class FormComponent implements OnInit {
     {
       headerName: 'Hire date',
       field: 'hdate',
+      filter: 'agDateColumnFilter',
+      // add extra parameters for the date filter
+      filterParams: {
+        // provide comparator function
+        comparator: this.dateComparator,
+      },
+      width: 200,
     },
     {
       headerName: 'Job title',
@@ -158,9 +174,9 @@ export class FormComponent implements OnInit {
       bdate: '23/09/1999',
       gender: 'Male',
       hdate: '01/08/2025',
-      title: 'Intern',
+      title: 'Junior Developer',
       id: 1,
-      created: '21/05/2020',
+      created: '23/09/1999',
       createdBy: 'Bakir',
       modified: false,
       modifiedBy: '',
@@ -171,10 +187,10 @@ export class FormComponent implements OnInit {
       phone: '+38762412226',
       email: 'bakir.karovic@gmail.com',
       status: 'Holiday absence',
-      bdate: '13/01/1999',
+      bdate: '25/09/1999',
       gender: 'Male',
       hdate: '24/01/2021',
-      title: 'System designer',
+      title: 'System Designer',
       id: 2,
       created: '21/05/2020',
       createdBy: 'Bakir',
@@ -187,7 +203,7 @@ export class FormComponent implements OnInit {
       phone: '+38761598203',
       email: 'bakir.karovic@live.com',
       status: 'Business Trip',
-      bdate: '29/02/2000',
+      bdate: '02/11/2016',
       gender: 'Male',
       hdate: '27/11/2023',
       title: 'Senior Developer',
@@ -203,10 +219,10 @@ export class FormComponent implements OnInit {
       phone: '+38761598203',
       email: 'bakir.karovic@live.com',
       status: 'Sickness absence',
-      bdate: '29/02/2000',
+      bdate: '13/01/2001',
       gender: 'Male',
       hdate: '27/11/2023',
-      title: 'Business analyst',
+      title: 'Business Analyst',
       id: 4,
       created: '21/05/2020',
       createdBy: 'Bakir',
@@ -219,12 +235,12 @@ export class FormComponent implements OnInit {
       phone: '+38761598203',
       email: 'bakir.karovic@live.com',
       status: 'Maternity absence',
-      bdate: '29/02/2000',
+      bdate: '01/05/1999',
       gender: 'Male',
       hdate: '27/11/2023',
       title: 'Sales',
       id: 5,
-      created: '21/05/2020',
+      created: '11/05/2020',
       createdBy: 'Bakir',
       modified: false,
       modifiedBy: '',
@@ -235,7 +251,7 @@ export class FormComponent implements OnInit {
       phone: '+38761598203',
       email: 'nadir@live.com',
       status: 'At work',
-      bdate: '29/02/2000',
+      bdate: '21/07/1997',
       gender: 'Male',
       hdate: '27/11/2023',
       title: 'Administration',
@@ -246,6 +262,7 @@ export class FormComponent implements OnInit {
       modifiedBy: '',
     },
   ];
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -262,5 +279,60 @@ export class FormComponent implements OnInit {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+  }
+
+  dateComparator(filterDate, cellValue) {
+    const dateAsString = cellValue;
+
+    if (dateAsString == null) {
+      return 0;
+    }
+
+    // In the example application, dates are stored as dd/mm/yyyy
+    // We create a Date object for comparison against the filter date
+    const dateParts = dateAsString.split('/');
+    const day = Number(dateParts[0]);
+    const month = Number(dateParts[1]) - 1;
+    const year = Number(dateParts[2]);
+    const cellDate = new Date(year, month, day);
+
+    // ignore time when comparing
+    filterDate.setHours(0, 0, 0, 0);
+    cellDate.setHours(0, 0, 0, 0);
+
+    // Now that both parameters are Date objects, we can compare
+    if (cellDate < filterDate) {
+      return -1;
+    } else if (cellDate > filterDate) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  getDatePicker() {
+    function Datepicker() {}
+    Datepicker.prototype.init = function (params) {
+      this.eInput = document.createElement('input');
+      this.eInput.value = params.value;
+      this.eInput.classList.add('ag-input');
+      this.eInput.style.height = '100%';
+      $(this.eInput).datepicker({ dateFormat: 'dd/MM/yyyy' });
+    };
+    Datepicker.prototype.getGui = function () {
+      return this.eInput;
+    };
+    Datepicker.prototype.afterGuiAttached = function () {
+      this.eInput.focus();
+      this.eInput.select();
+    };
+    Datepicker.prototype.getValue = function () {
+      return this.eInput.value;
+    };
+    Datepicker.prototype.destroy = function () {};
+    Datepicker.prototype.isPopup = function () {
+      return false;
+    };
+    return Datepicker;
   }
 }

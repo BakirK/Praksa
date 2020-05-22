@@ -1,7 +1,7 @@
 {
   "menus": [
     {
-      "name": "Availability",
+      "name": "Employees",
       "menus": [],
       "routerLink": "form",
       "icon": "faIdCard"
@@ -37,7 +37,7 @@
       "icon": "faCalendarCheck"
     },
     {
-      "name": "Employee",
+      "name": "Availability",
       "menus": [],
       "routerLink": "",
       "icon": "faFile"
