@@ -1,31 +1,42 @@
-<fa-icon [icon]="icons.faUserPlus" size="lg" [fixedWidth]="true"></fa-icon>
-<fa-icon [icon]="icons.faUserEdit" size="lg" [fixedWidth]="true"></fa-icon>
-<fa-icon [icon]="icons.faUserTimes" size="lg" [fixedWidth]="true"></fa-icon>
+<a>
+  <fa-icon
+    [icon]="icons.faUserPlus"
+    size="lg"
+    [fixedWidth]="true"
+    style="color: green;"
+    (click)="addRow()"
+  ></fa-icon>
+</a>
+<a>
+  <fa-icon
+    [icon]="icons.faUserEdit"
+    size="lg"
+    [fixedWidth]="true"
+    style="color: orange;"
+  ></fa-icon>
+</a>
+<a>
+  <fa-icon
+    (click)="deleteSelectedRows()"
+    [icon]="icons.faUserTimes"
+    size="lg"
+    [fixedWidth]="true"
+    style="color: red;"
+  ></fa-icon>
+</a>
 <ag-grid-angular
   #agGrid
   style="width: 80%; height: 500px; margin: 0 auto; vertical-align: middle;"
   class="ag-theme-material"
+  [components]="components"
   [rowData]="rowData"
   [columnDefs]="columnDefs"
   [defaultColDef]="defaultColDef"
   rowSelection="multiple"
   pagination
+  paginationPageSize="10"
   animateRows="true"
   [frameworkComponents]="frameworkComponents"
-  [components]="components"
   (gridReady)="onGridReady($event)"
 >
 </ag-grid-angular>
-
-<script>
-  $("input[type=date]")
-    .on("change", function () {
-      this.setAttribute(
-        "data-date",
-        moment(this.value, "YYYY-MM-DD").format(
-          this.getAttribute("data-date-format")
-        )
-      );
-    })
-    .trigger("change");
-</script>

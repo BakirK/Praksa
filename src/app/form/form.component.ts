@@ -1,4 +1,3 @@
-/// <reference path="typings.d.ts" />
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import { ColumnsToolPanelModule } from '@ag-grid-enterprise/column-tool-panel';
 import { MenuModule } from '@ag-grid-enterprise/menu';
@@ -6,10 +5,10 @@ import { RichSelectModule } from '@ag-grid-enterprise/rich-select';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { faUserEdit, faUserPlus, faUserTimes } from '@fortawesome/free-solid-svg-icons';
 import { AgGridAngular } from 'ag-grid-angular';
-import $ from 'jquery';
 
 import { SelectRendererComponent } from './select-cell/select-cell-renderer.component';
 
+declare var $: any;
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -17,6 +16,7 @@ import { SelectRendererComponent } from './select-cell/select-cell-renderer.comp
 })
 export class FormComponent implements OnInit {
   @ViewChild('agGrid') agGrid: AgGridAngular;
+
   icons = {
     faUserTimes: faUserTimes,
     faUserEdit: faUserEdit,
@@ -24,7 +24,7 @@ export class FormComponent implements OnInit {
   };
   private gridApi;
   private gridColumnApi;
-
+  public components;
   public modules = [
     ClientSideRowModelModule,
     RichSelectModule,
@@ -34,10 +34,6 @@ export class FormComponent implements OnInit {
   public frameworkComponents = {
     SelectRendererComponent: SelectRendererComponent,
   };
-  public components = {
-    datePicker: this.getDatePicker(),
-  };
-
   defaultColDef = {
     width: 150,
     sortable: true,
@@ -48,7 +44,7 @@ export class FormComponent implements OnInit {
     // supress filter and menu icon
     suppressMenu: true,
     floatingFilterComponentParams: { suppressFilterButton: true },
-    headerClass: 'poglavlje',
+    headerClass: 'grid-header',
   };
 
   columnDefs = [
@@ -121,6 +117,7 @@ export class FormComponent implements OnInit {
         comparator: this.dateComparator,
       },
       width: 200,
+      cellEditor: 'datePicker',
     },
     {
       headerName: 'Job title',
@@ -145,22 +142,27 @@ export class FormComponent implements OnInit {
       headerName: 'Id',
       field: 'id',
       filter: 'agNumberColumnFilter',
+      editable: false,
     },
     {
       headerName: 'Created',
       field: 'created',
+      editable: false,
     },
     {
       headerName: 'Created by',
       field: 'createdBy',
+      editable: false,
     },
     {
       headerName: 'Modified',
       field: 'modified',
+      editable: false,
     },
     {
       headerName: 'Modified by',
       field: 'modifiedBy',
+      editable: false,
     },
   ];
 
@@ -263,17 +265,43 @@ export class FormComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor() {
+    this.components = { datePicker: getDatePicker() };
+  }
 
   ngOnInit(): void {}
 
-  getSelectedRows() {
-    const selectedNodes = this.agGrid.api.getSelectedNodes();
-    const selectedData = selectedNodes.map((node) => node.data);
-    const selectedDataStringPresentation = selectedData
-      .map((node) => node.make + ' ' + node.model)
-      .join(', ');
-    alert(`Selected nodes: ${selectedDataStringPresentation}`);
+  public deleteSelectedRows() {
+    const selectedRows = this.agGrid.api.getSelectedRows();
+    this.agGrid.api.updateRowData({ remove: selectedRows });
+  }
+
+  public addRow() {
+    this.agGrid.api.updateRowData({
+      add: [
+        {
+          name: '',
+          l_name: '',
+          phone: '',
+          email: '',
+          status: '',
+          bdate: '',
+          gender: '',
+          hdate: '',
+          title: '',
+          created: '',
+          createdBy: '',
+          modified: '',
+          modifiedBy: '',
+        },
+      ],
+    });
+    const last = this.gridApi.getDisplayedRowCount() - 1;
+    this.gridApi.setFocusedCell(last, 'name');
+    this.gridApi.startEditingCell({
+      rowIndex: last,
+      colKey: 'name',
+    });
   }
 
   onGridReady(params) {
@@ -309,30 +337,30 @@ export class FormComponent implements OnInit {
       return 0;
     }
   }
+}
 
-  getDatePicker() {
-    function Datepicker() {}
-    Datepicker.prototype.init = function (params) {
-      this.eInput = document.createElement('input');
-      this.eInput.value = params.value;
-      this.eInput.classList.add('ag-input');
-      this.eInput.style.height = '100%';
-      $(this.eInput).datepicker({ dateFormat: 'dd/MM/yyyy' });
-    };
-    Datepicker.prototype.getGui = function () {
-      return this.eInput;
-    };
-    Datepicker.prototype.afterGuiAttached = function () {
-      this.eInput.focus();
-      this.eInput.select();
-    };
-    Datepicker.prototype.getValue = function () {
-      return this.eInput.value;
-    };
-    Datepicker.prototype.destroy = function () {};
-    Datepicker.prototype.isPopup = function () {
-      return false;
-    };
-    return Datepicker;
-  }
+function getDatePicker() {
+  function Datepicker() {}
+  Datepicker.prototype.init = function (params) {
+    this.eInput = document.createElement('input');
+    this.eInput.value = params.value;
+    this.eInput.classList.add('ag-input');
+    this.eInput.style.height = '100%';
+    $(this.eInput).datepicker({ dateFormat: 'dd/mm/yy' });
+  };
+  Datepicker.prototype.getGui = function () {
+    return this.eInput;
+  };
+  Datepicker.prototype.afterGuiAttached = function () {
+    this.eInput.focus();
+    this.eInput.select();
+  };
+  Datepicker.prototype.getValue = function () {
+    return this.eInput.value;
+  };
+  Datepicker.prototype.destroy = function () {};
+  Datepicker.prototype.isPopup = function () {
+    return false;
+  };
+  return Datepicker;
 }
