@@ -39,7 +39,6 @@ export class FormComponent implements OnInit {
     sortable: true,
     editable: true,
     filter: 'agTextColumnFilter',
-    floatingFilter: true,
     resizable: true,
     // supress filter and menu icon
     suppressMenu: true,
@@ -82,7 +81,6 @@ export class FormComponent implements OnInit {
           'Sickness absence',
           'Maternity absence',
         ],
-        cellRenderer: 'SelectRendererComponent',
       },
     },
     {
@@ -104,7 +102,6 @@ export class FormComponent implements OnInit {
       cellEditor: 'agRichSelectCellEditor',
       cellEditorParams: {
         values: ['Male', 'Female'],
-        cellRenderer: 'SelectRendererComponent',
       },
     },
     {
@@ -135,7 +132,6 @@ export class FormComponent implements OnInit {
           'Marketing',
           'Sales',
         ],
-        cellRenderer: 'SelectRendererComponent',
       },
     },
     {
@@ -278,23 +274,7 @@ export class FormComponent implements OnInit {
 
   public addRow() {
     this.agGrid.api.updateRowData({
-      add: [
-        {
-          name: '',
-          l_name: '',
-          phone: '',
-          email: '',
-          status: '',
-          bdate: '',
-          gender: '',
-          hdate: '',
-          title: '',
-          created: '',
-          createdBy: '',
-          modified: '',
-          modifiedBy: '',
-        },
-      ],
+      add: [{}],
     });
     const last = this.gridApi.getDisplayedRowCount() - 1;
     this.gridApi.setFocusedCell(last, 'name');
