@@ -1,33 +1,29 @@
-<a class="operation">
-  <fa-icon
-    [icon]="icons.faUserPlus"
-    size="lg"
-    [fixedWidth]="true"
-    style="color: green;"
-    (click)="addRow()"
-  ></fa-icon>
-</a>
-<a class="operation">
-  <fa-icon
-    [icon]="icons.faUserEdit"
-    size="lg"
-    [fixedWidth]="true"
-    style="color: orange;"
-  ></fa-icon>
-</a>
-<a class="operation">
-  <fa-icon
-    (click)="deleteSelectedRows()"
-    [icon]="icons.faUserTimes"
-    size="lg"
-    [fixedWidth]="true"
-    style="color: red;"
-  ></fa-icon>
-</a>
+<div class="wrapper">
+  <div class="right">
+    <a class="operation">
+      <fa-icon
+        [icon]="icons.faUserPlus"
+        size="lg"
+        [fixedWidth]="true"
+        style="color: green;"
+        (click)="addRow()"
+      ></fa-icon>
+    </a>
+    <a class="operation">
+      <fa-icon
+        (click)="deleteSelectedRows()"
+        [icon]="icons.faUserTimes"
+        size="lg"
+        [fixedWidth]="true"
+        style="color: red;"
+      ></fa-icon>
+    </a>
+  </div>
+</div>
+
 <ag-grid-angular
   #agGrid
-  style="width: 80%; height: 500px; margin: 0 auto; vertical-align: middle;"
-  class="ag-theme-material"
+  class="ag-theme-material grid"
   [components]="components"
   [rowData]="rowData"
   [columnDefs]="columnDefs"

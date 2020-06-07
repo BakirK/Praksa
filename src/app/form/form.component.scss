@@ -10,3 +10,19 @@ $greyscale-off: grayscale(0%) opacity(1);
 .operation {
   cursor: pointer;
 }
+.right {
+  float: right;
+}
+.wrapper {
+  padding-top: 20px;
+  padding-bottom: 0;
+  display: block;
+  height: 25px;
+  width: 90%;
+}
+.grid {
+  width: 80%;
+  height: 600px;
+  margin: 0 auto;
+  vertical-align: middle;
+}

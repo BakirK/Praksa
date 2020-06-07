@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
@@ -50,6 +51,7 @@ import { SidenavService } from './services/Sidenav.service';
     MatListModule,
     MatTooltipModule,
     HttpClientModule,
+    MatGridListModule,
     AgGridModule.withComponents([SelectRendererComponent]),
   ],
   providers: [SidenavService],

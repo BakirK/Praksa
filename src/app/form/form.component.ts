@@ -39,6 +39,7 @@ export class FormComponent implements OnInit {
     sortable: true,
     editable: true,
     filter: 'agTextColumnFilter',
+    floatingFilter: true,
     resizable: true,
     // supress filter and menu icon
     suppressMenu: true,
@@ -161,7 +162,7 @@ export class FormComponent implements OnInit {
       editable: false,
     },
   ];
-
+  // TODO - put in JSON
   rowData = [
     {
       name: 'Bakir',
