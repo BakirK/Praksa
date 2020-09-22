@@ -16,3 +16,14 @@ body {
     )
   );
 }
+.invalid-cell {
+  color: red !important;
+}
+.valid-cell {
+  color: green !important;
+}
+// change pink border color around editing cells
+/*
+.ag-theme-material .ag-cell-inline-editing {
+  border-color: white !important;
+}*/

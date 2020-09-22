@@ -7,6 +7,8 @@ import { faUserEdit, faUserPlus, faUserTimes } from '@fortawesome/free-solid-svg
 import { AgGridAngular } from 'ag-grid-angular';
 
 import { SelectRendererComponent } from './select-cell/select-cell-renderer.component';
+import { EmailCellEditor } from './validation/emailValidation';
+import { PhoneCellEditor } from './validation/phoneValidation';
 
 declare var $: any;
 @Component({
@@ -52,13 +54,51 @@ export class FormComponent implements OnInit {
       headerName: 'First name',
       field: 'name',
       checkboxSelection: true,
+      valueGetter: function (params) {
+        if (params.data.name) {
+          return params.data.name.toString();
+        } else {
+          return 'required';
+        }
+      },
+      valueSetter: function (params) {
+        if (params.newValue) {
+          params.data.name = params.newValue;
+          // return true to tell grid that the value has changed, so it knows
+          // to update the cell
+          return true;
+        } else {
+          // return false, the grid doesn't need to update
+          return false;
+        }
+      },
     },
     {
       headerName: 'Last name',
       field: 'l_name',
+      valueGetter: function (params) {
+        if (params.data.l_name) {
+          return params.data.l_name.toString();
+        } else {
+          return 'required';
+        }
+      },
+      valueSetter: function (params) {
+        if (params.newValue) {
+          params.data.l_name = params.newValue;
+          // return true to tell grid that the value has changed, so it knows
+          // to update the cell
+          return true;
+        } else {
+          // return false, the grid doesn't need to update
+          return false;
+        }
+      },
     },
     {
       headerName: 'Phone number',
+      width: 175,
+      cellEditor: PhoneCellEditor,
       filter: 'agTextColumnFilter',
       field: 'phone',
       floatingFilterComponentParams: { suppressFilterButton: false },
@@ -67,6 +107,7 @@ export class FormComponent implements OnInit {
       headerName: 'Email',
       field: 'email',
       width: 200,
+      cellEditor: EmailCellEditor,
     },
     {
       headerName: 'Status',
@@ -83,6 +124,13 @@ export class FormComponent implements OnInit {
           'Maternity absence',
         ],
       },
+      valueGetter: function (params) {
+        if (params.data.status) {
+          return params.data.status;
+        } else {
+          return 'At work';
+        }
+      },
     },
     {
       headerName: 'Birth date',
@@ -95,6 +143,13 @@ export class FormComponent implements OnInit {
       },
       width: 200,
       cellEditor: 'datePicker',
+      valueGetter: function (params) {
+        if (params.data.bdate) {
+          return params.data.bdate;
+        } else {
+          return todaysDateString();
+        }
+      },
     },
     {
       headerName: 'Gender',
@@ -103,6 +158,13 @@ export class FormComponent implements OnInit {
       cellEditor: 'agRichSelectCellEditor',
       cellEditorParams: {
         values: ['Male', 'Female'],
+      },
+      valueGetter: function (params) {
+        if (params.data.gender) {
+          return params.data.gender;
+        } else {
+          return 'Female';
+        }
       },
     },
     {
@@ -116,6 +178,13 @@ export class FormComponent implements OnInit {
       },
       width: 200,
       cellEditor: 'datePicker',
+      valueGetter: function (params) {
+        if (params.data.hdate) {
+          return params.data.hdate;
+        } else {
+          return todaysDateString();
+        }
+      },
     },
     {
       headerName: 'Job title',
@@ -134,9 +203,17 @@ export class FormComponent implements OnInit {
           'Sales',
         ],
       },
+      valueGetter: function (params) {
+        if (params.data.title) {
+          return params.data.title;
+        } else {
+          return 'Junior Developer';
+        }
+      },
     },
     {
       headerName: 'Id',
+      type: 'numericColumn',
       field: 'id',
       filter: 'agNumberColumnFilter',
       editable: false,
@@ -145,16 +222,29 @@ export class FormComponent implements OnInit {
       headerName: 'Created',
       field: 'created',
       editable: false,
+      valueGetter: function (params) {
+        if (params.data.created) {
+          return params.data.created;
+        } else {
+          return todaysDateString();
+        }
+      },
     },
     {
       headerName: 'Created by',
       field: 'createdBy',
       editable: false,
+      valueGetter: function (params) {
+        return 'Bakir';
+      },
     },
     {
       headerName: 'Modified',
       field: 'modified',
       editable: false,
+      valueGetter: function (params) {
+        return 'false';
+      },
     },
     {
       headerName: 'Modified by',
@@ -261,7 +351,6 @@ export class FormComponent implements OnInit {
       modifiedBy: '',
     },
   ];
-
   constructor() {
     this.components = { datePicker: getDatePicker() };
   }
@@ -344,4 +433,22 @@ function getDatePicker() {
     return false;
   };
   return Datepicker;
+}
+
+function validateEmail(email) {
+  const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return regex.test(String(email).toLowerCase());
+}
+
+function validatePhoneNumber(phoneNumber) {
+  const regex = /^(\+387(\d{9})|(\d{8}))$/;
+  return regex.test(String(phoneNumber).toLowerCase());
+}
+
+function todaysDateString() {
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const yyyy = today.getFullYear();
+  return dd + '/' + mm + '/' + yyyy;
 }
