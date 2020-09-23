@@ -161,7 +161,7 @@ export class FormComponent implements OnInit {
         if (params.data.bdate) {
           return params.data.bdate;
         } else {
-          return todaysDateString();
+          return this.todaysDateString();
         }
       },
     },
@@ -196,7 +196,7 @@ export class FormComponent implements OnInit {
         if (params.data.hdate) {
           return params.data.hdate;
         } else {
-          return todaysDateString();
+          return this.todaysDateString();
         }
       },
     },
@@ -240,7 +240,7 @@ export class FormComponent implements OnInit {
         if (params.data.created) {
           return params.data.created;
         } else {
-          return todaysDateString();
+          return this.todaysDateString();
         }
       },
     },
@@ -485,12 +485,12 @@ export class FormComponent implements OnInit {
       return 0;
     }
   }
-}
 
-function todaysDateString() {
-  const today = new Date();
-  const dd = String(today.getDate()).padStart(2, '0');
-  const mm = String(today.getMonth() + 1).padStart(2, '0');
-  const yyyy = today.getFullYear();
-  return dd + '/' + mm + '/' + yyyy;
+  todaysDateString() {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
+    return dd + '/' + mm + '/' + yyyy;
+  }
 }
