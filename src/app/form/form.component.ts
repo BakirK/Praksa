@@ -62,7 +62,9 @@ export class FormComponent implements OnInit {
         }
       },
       valueSetter: function (params) {
-        if (params.newValue) {
+        const regex = /\d/;
+
+        if (params.newValue && regex.test(params.newValue)) {
           params.data.name = params.newValue;
           // return true to tell grid that the value has changed, so it knows
           // to update the cell
@@ -153,10 +155,11 @@ export class FormComponent implements OnInit {
       // add extra parameters for the date filter
       filterParams: {
         // provide comparator function
-        comparator: this.dateComparator,
+        comparator: this.dateFilterComparator,
       },
+      comparator: dateSortComparator,
       width: 200,
-      cellEditor: 'datePicker',
+      cellEditor: getDatePicker(),
       valueGetter: function (params) {
         if (params.data.bdate) {
           return params.data.bdate;
@@ -185,11 +188,12 @@ export class FormComponent implements OnInit {
       headerName: 'Hire date',
       field: 'hdate',
       filter: 'agDateColumnFilter',
-      // add extra parameters for the date filter
       filterParams: {
-        // provide comparator function
-        comparator: this.dateComparator,
+        // filter comparator
+        comparator: this.dateFilterComparator,
       },
+      // sort comparator
+      comparator: dateSortComparator,
       width: 200,
       cellEditor: 'datePicker',
       valueGetter: function (params) {
@@ -236,6 +240,7 @@ export class FormComponent implements OnInit {
       headerName: 'Created',
       field: 'created',
       editable: false,
+      comparator: dateSortComparator,
       valueGetter: function (params) {
         if (params.data.created) {
           return params.data.created;
@@ -288,7 +293,7 @@ export class FormComponent implements OnInit {
       name: 'Kerim',
       l_name: 'Betkasević',
       phone: '+38762412226',
-      email: 'bakir.karovic@gmail.com',
+      email: 'mbektasev@etf.unsa.ba',
       status: 'Holiday absence',
       bdate: '25/09/1999',
       gender: 'Male',
@@ -304,7 +309,7 @@ export class FormComponent implements OnInit {
       name: 'Semra',
       l_name: 'Šabić',
       phone: '+38761598203',
-      email: 'bakir.karovic@live.com',
+      email: 'ssabic1@etf.unsa.ba',
       status: 'Business Trip',
       bdate: '02/11/2016',
       gender: 'Female',
@@ -320,7 +325,7 @@ export class FormComponent implements OnInit {
       name: 'Faris',
       l_name: 'Baždar',
       phone: '+38761598203',
-      email: 'bakir.karovic@live.com',
+      email: 'bmwfaris@hotmail.com',
       status: 'Sickness absence',
       bdate: '13/01/2001',
       gender: 'Male',
@@ -336,7 +341,7 @@ export class FormComponent implements OnInit {
       name: 'Darko',
       l_name: 'Randić',
       phone: '+38761598203',
-      email: 'bakir.karovic@live.com',
+      email: 'darko@zira.com',
       status: 'Maternity absence',
       bdate: '01/05/1999',
       gender: 'Male',
@@ -359,7 +364,7 @@ export class FormComponent implements OnInit {
       hdate: '27/11/2023',
       title: 'Administration',
       id: 6,
-      created: '21/05/2020',
+      created: '25/05/2020',
       createdBy: 'Bakir',
       modified: false,
       modifiedBy: '',
@@ -372,10 +377,10 @@ export class FormComponent implements OnInit {
       status: 'At work',
       bdate: '03/06/1999',
       gender: 'Female',
-      hdate: '24/05/2020',
+      hdate: '11/02/2018',
       title: 'Business Analyst',
       id: 7,
-      created: '21/05/2020',
+      created: '24/05/2020',
       createdBy: 'Bakir',
       modified: false,
       modifiedBy: '',
@@ -388,10 +393,10 @@ export class FormComponent implements OnInit {
       status: 'At work',
       bdate: '27/01/1997',
       gender: 'Female',
-      hdate: '03/06/2020',
-      title: 'Senior Developer',
+      hdate: '29/02/2020',
+      title: 'Junior Developer',
       id: 8,
-      created: '21/05/2020',
+      created: '23/05/2020',
       createdBy: 'Bakir',
       modified: false,
       modifiedBy: '',
@@ -404,8 +409,8 @@ export class FormComponent implements OnInit {
       status: 'At work',
       bdate: '24/10/1997',
       gender: 'Male',
-      hdate: '03/06/2020',
-      title: 'Senior Developer',
+      hdate: '23/08/2020',
+      title: 'System Designer',
       id: 9,
       created: '21/05/2020',
       createdBy: 'Bakir',
@@ -420,10 +425,26 @@ export class FormComponent implements OnInit {
       status: 'At work',
       bdate: '30/03/1997',
       gender: 'Male',
-      hdate: '03/06/2020',
+      hdate: '07/07/2020',
       title: 'Senior Developer',
       id: 10,
-      created: '21/05/2020',
+      created: '22/05/2020',
+      createdBy: 'Bakir',
+      modified: false,
+      modifiedBy: '',
+    },
+    {
+      name: 'Merim',
+      l_name: 'Kulovac',
+      phone: '+387601234567',
+      email: 'mera@etf.com',
+      status: 'At work',
+      bdate: '06/05/1998',
+      gender: 'Male',
+      hdate: '01/05/2020',
+      title: 'Junior Developer',
+      id: 11,
+      created: '19/05/2020',
       createdBy: 'Bakir',
       modified: false,
       modifiedBy: '',
@@ -457,16 +478,12 @@ export class FormComponent implements OnInit {
     this.gridColumnApi = params.columnApi;
   }
 
-  dateComparator(filterDate, cellValue) {
-    const dateAsString = cellValue;
-
-    if (dateAsString == null) {
+  dateFilterComparator(filterDate, cellValue) {
+    if (!cellValue) {
       return 0;
     }
 
-    // In the example application, dates are stored as dd/mm/yyyy
-    // We create a Date object for comparison against the filter date
-    const dateParts = dateAsString.split('/');
+    const dateParts = cellValue.split('/');
     const day = Number(dateParts[0]);
     const month = Number(dateParts[1]) - 1;
     const year = Number(dateParts[2]);
@@ -476,7 +493,6 @@ export class FormComponent implements OnInit {
     filterDate.setHours(0, 0, 0, 0);
     cellDate.setHours(0, 0, 0, 0);
 
-    // Now that both parameters are Date objects, we can compare
     if (cellDate < filterDate) {
       return -1;
     } else if (cellDate > filterDate) {
@@ -493,4 +509,30 @@ function todaysDateString() {
   const mm = String(today.getMonth() + 1).padStart(2, '0');
   const yyyy = today.getFullYear();
   return dd + '/' + mm + '/' + yyyy;
+}
+
+function dateSortComparator(date1, date2) {
+  const date1Number = monthToComparableNumber(date1);
+  const date2Number = monthToComparableNumber(date2);
+  if (date1Number === null && date2Number === null) {
+    return 0;
+  }
+  if (date1Number === null) {
+    return -1;
+  }
+  if (date2Number === null) {
+    return 1;
+  }
+  return date1Number - date2Number;
+}
+
+function monthToComparableNumber(date) {
+  if (date === undefined || date === null || date.length !== 10) {
+    return null;
+  }
+  const yearNumber = date.substring(6, 10);
+  const monthNumber = date.substring(3, 5);
+  const dayNumber = date.substring(0, 2);
+  const result = yearNumber * 10000 + monthNumber * 100 + dayNumber;
+  return result;
 }
