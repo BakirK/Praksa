@@ -102,12 +102,26 @@ export class FormComponent implements OnInit {
       filter: 'agTextColumnFilter',
       field: 'phone',
       floatingFilterComponentParams: { suppressFilterButton: false },
+      valueGetter: function (params) {
+        if (params.data.phone) {
+          return params.data.phone.toString();
+        } else {
+          return '+387xxxxxxxxx';
+        }
+      },
     },
     {
       headerName: 'Email',
       field: 'email',
       width: 200,
       cellEditor: EmailCellEditor,
+      valueGetter: function (params) {
+        if (params.data.email) {
+          return params.data.email.toString();
+        } else {
+          return 'required@example.com';
+        }
+      },
     },
     {
       headerName: 'Status',
@@ -441,7 +455,7 @@ function validateEmail(email) {
 }
 
 function validatePhoneNumber(phoneNumber) {
-  const regex = /^(\+387(\d{9})|(\d{8}))$/;
+  const regex = /^(\+387\d{8}(?:\d{1})?)$/;
   return regex.test(String(phoneNumber).toLowerCase());
 }
 

@@ -21,7 +21,7 @@ PhoneCellEditor.prototype.inputChanged = function (event) {
 };
 
 PhoneCellEditor.prototype.isValid = function (value) {
-  const regex = /^(\+387(\d{10})|(\d{9}))$/;
+  const regex = /^(\+387\d{8}(?:\d{1})?)$/;
   return regex.test(String(value).toLowerCase());
 };
 
