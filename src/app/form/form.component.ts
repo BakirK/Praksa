@@ -6,6 +6,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { faUserEdit, faUserPlus, faUserTimes } from '@fortawesome/free-solid-svg-icons';
 import { AgGridAngular } from 'ag-grid-angular';
 
+import { getDatePicker } from './datepicker';
 import { SelectRendererComponent } from './select-cell/select-cell-renderer.component';
 import { EmailCellEditor } from './validation/emailValidation';
 import { PhoneCellEditor } from './validation/phoneValidation';
@@ -270,7 +271,7 @@ export class FormComponent implements OnInit {
   rowData = [
     {
       name: 'Bakir',
-      l_name: 'Karovic',
+      l_name: 'Karović',
       phone: '+38762409970',
       email: 'bkarovic1@etf.unsa.ba',
       status: 'At work',
@@ -286,7 +287,7 @@ export class FormComponent implements OnInit {
     },
     {
       name: 'Kerim',
-      l_name: 'Betkasevic',
+      l_name: 'Betkasević',
       phone: '+38762412226',
       email: 'bakir.karovic@gmail.com',
       status: 'Holiday absence',
@@ -302,12 +303,12 @@ export class FormComponent implements OnInit {
     },
     {
       name: 'Semra',
-      l_name: 'Sabic',
+      l_name: 'Šabić',
       phone: '+38761598203',
       email: 'bakir.karovic@live.com',
       status: 'Business Trip',
       bdate: '02/11/2016',
-      gender: 'Male',
+      gender: 'Female',
       hdate: '27/11/2023',
       title: 'Senior Developer',
       id: 3,
@@ -318,7 +319,7 @@ export class FormComponent implements OnInit {
     },
     {
       name: 'Faris',
-      l_name: 'Bazdar',
+      l_name: 'Baždar',
       phone: '+38761598203',
       email: 'bakir.karovic@live.com',
       status: 'Sickness absence',
@@ -334,7 +335,7 @@ export class FormComponent implements OnInit {
     },
     {
       name: 'Darko',
-      l_name: 'Randic',
+      l_name: 'Randić',
       phone: '+38761598203',
       email: 'bakir.karovic@live.com',
       status: 'Maternity absence',
@@ -350,7 +351,7 @@ export class FormComponent implements OnInit {
     },
     {
       name: 'Nadir',
-      l_name: 'Muratovic',
+      l_name: 'Muratović',
       phone: '+38761598203',
       email: 'nadir@live.com',
       status: 'At work',
@@ -359,6 +360,70 @@ export class FormComponent implements OnInit {
       hdate: '27/11/2023',
       title: 'Administration',
       id: 6,
+      created: '21/05/2020',
+      createdBy: 'Bakir',
+      modified: false,
+      modifiedBy: '',
+    },
+    {
+      name: 'Nađa',
+      l_name: 'Fejzić',
+      phone: '+387601234567',
+      email: 'nadja@zira.ba',
+      status: 'At work',
+      bdate: '03/06/1999',
+      gender: 'Female',
+      hdate: '24/05/2020',
+      title: 'Business Analyst',
+      id: 7,
+      created: '21/05/2020',
+      createdBy: 'Bakir',
+      modified: false,
+      modifiedBy: '',
+    },
+    {
+      name: 'Ilma',
+      l_name: 'Zolota',
+      phone: '+387601234567',
+      email: 'nadja@ius.com',
+      status: 'At work',
+      bdate: '27/01/1997',
+      gender: 'Female',
+      hdate: '03/06/2020',
+      title: 'Senior Developer',
+      id: 8,
+      created: '21/05/2020',
+      createdBy: 'Bakir',
+      modified: false,
+      modifiedBy: '',
+    },
+    {
+      name: 'Ajdin',
+      l_name: 'Hasanefendić',
+      phone: '+387601234567',
+      email: 'ajdin@fit.com',
+      status: 'At work',
+      bdate: '24/10/1997',
+      gender: 'Male',
+      hdate: '03/06/2020',
+      title: 'Senior Developer',
+      id: 9,
+      created: '21/05/2020',
+      createdBy: 'Bakir',
+      modified: false,
+      modifiedBy: '',
+    },
+    {
+      name: 'Alem',
+      l_name: 'Dinarević',
+      phone: '+387601234567',
+      email: 'alem@ius.com',
+      status: 'At work',
+      bdate: '30/03/1997',
+      gender: 'Male',
+      hdate: '03/06/2020',
+      title: 'Senior Developer',
+      id: 10,
       created: '21/05/2020',
       createdBy: 'Bakir',
       modified: false,
@@ -421,42 +486,6 @@ export class FormComponent implements OnInit {
       return 0;
     }
   }
-}
-
-function getDatePicker() {
-  function Datepicker() {}
-  Datepicker.prototype.init = function (params) {
-    this.eInput = document.createElement('input');
-    this.eInput.value = params.value;
-    this.eInput.classList.add('ag-input');
-    this.eInput.style.height = '100%';
-    $(this.eInput).datepicker({ dateFormat: 'dd/mm/yy' });
-  };
-  Datepicker.prototype.getGui = function () {
-    return this.eInput;
-  };
-  Datepicker.prototype.afterGuiAttached = function () {
-    this.eInput.focus();
-    this.eInput.select();
-  };
-  Datepicker.prototype.getValue = function () {
-    return this.eInput.value;
-  };
-  Datepicker.prototype.destroy = function () {};
-  Datepicker.prototype.isPopup = function () {
-    return false;
-  };
-  return Datepicker;
-}
-
-function validateEmail(email) {
-  const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return regex.test(String(email).toLowerCase());
-}
-
-function validatePhoneNumber(phoneNumber) {
-  const regex = /^(\+387\d{8}(?:\d{1})?)$/;
-  return regex.test(String(phoneNumber).toLowerCase());
 }
 
 function todaysDateString() {
