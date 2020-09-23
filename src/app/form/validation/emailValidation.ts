@@ -3,7 +3,7 @@ export function EmailCellEditor() {}
 EmailCellEditor.prototype.init = function (params) {
   this.eGui = document.createElement('div');
   this.eGui.innerHTML = `
-    <input value=${params.value} class='ag-cell ag-cell-auto-height ag-cell-value ag-cell-not-inline-editing' style='width: 200px;'  />
+    <input value=${params.value} class='ag-cell ag-cell-auto-height ag-cell-value ag-cell-not-inline-editing' style='width: 200px; padding-top:40px;'  />
   `;
   this.eInput = this.eGui.querySelector('input');
   this.eInput.addEventListener('input', this.inputChanged.bind(this));
