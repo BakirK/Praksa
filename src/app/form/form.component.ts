@@ -11,7 +11,6 @@ import { SelectRendererComponent } from './select-cell/select-cell-renderer.comp
 import { EmailCellEditor } from './validation/emailValidation';
 import { PhoneCellEditor } from './validation/phoneValidation';
 
-declare var $: any;
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
