@@ -1,0 +1,52 @@
+{
+  "menus": [
+    {
+      "name": "Employees",
+      "menus": [],
+      "routerLink": "form",
+      "icon": "faIdCard"
+    },
+    {
+      "name": "Statistics",
+      "menus": [],
+      "routerLink": "",
+      "icon": "faHandshake"
+    },
+    {
+      "name": "Reports",
+      "menus": [],
+      "routerLink": "",
+      "icon": "faUserCog"
+    },
+    {
+      "name": "Server",
+      "menus": [],
+      "routerLink": "",
+      "icon": "faServer"
+    },
+    {
+      "name": "Registries",
+      "menus": [],
+      "routerLink": "",
+      "icon": "faShareSquare"
+    },
+    {
+      "name": "Project",
+      "menus": [],
+      "routerLink": "",
+      "icon": "faCalendarCheck"
+    },
+    {
+      "name": "Availability",
+      "menus": [],
+      "routerLink": "",
+      "icon": "faFile"
+    },
+    {
+      "name": "Compress",
+      "menus": [],
+      "routerLink": "",
+      "icon": "faCompressAlt"
+    }
+  ]
+}
