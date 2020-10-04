@@ -10,11 +10,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 .ag-theme-material {
-  @include ag-theme-material(
-    (
-      odd-row-background-color: #edf2f7,
-    )
-  );
+  @include ag-theme-material();
 }
 .invalid-cell {
   color: red !important;
