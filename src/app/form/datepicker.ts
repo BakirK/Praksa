@@ -4,6 +4,7 @@ export function getDatePicker() {
   function Datepicker() {}
   Datepicker.prototype.init = function (params) {
     this.eInput = document.createElement('input');
+    // this.eInput.setAttribute('type', 'date');
     this.eInput.value = params.value;
     this.eInput.classList.add('ag-input');
     this.eInput.style.height = '100%';
