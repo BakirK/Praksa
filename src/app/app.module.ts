@@ -25,6 +25,8 @@ import { HeroImageComponent } from './hero-image/hero-image.component';
 import { AppNavToolbarComponent } from './navbar/app-nav-toolbar/app-nav-toolbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavService } from './services/Sidenav.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { SidenavService } from './services/Sidenav.service';
     HttpClientModule,
     MatGridListModule,
     AgGridModule.withComponents([SelectRendererComponent]),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [SidenavService],
   bootstrap: [AppComponent],

@@ -1,0 +1,128 @@
+{
+  "configVersion": 1,
+  "timestamp": 1611675695335,
+  "index": "https://bakirk.github.io/Praksa/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://bakirk.github.io/Praksa/favicon.ico",
+        "https://bakirk.github.io/Praksa/index.html",
+        "https://bakirk.github.io/Praksa/main-es2015.ff721de6827c2ae1f4cf.js",
+        "https://bakirk.github.io/Praksa/main-es5.ff721de6827c2ae1f4cf.js",
+        "https://bakirk.github.io/Praksa/manifest.webmanifest",
+        "https://bakirk.github.io/Praksa/polyfills-es2015.690002c25ea8557bb4b0.js",
+        "https://bakirk.github.io/Praksa/polyfills-es5.9e286f6d9247438cbb02.js",
+        "https://bakirk.github.io/Praksa/runtime-es2015.1eba213af0b233498d9d.js",
+        "https://bakirk.github.io/Praksa/runtime-es5.1eba213af0b233498d9d.js",
+        "https://bakirk.github.io/Praksa/styles.75967754a51b217b8339.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://bakirk.github.io/Praksa/assets/icons/icon-128x128.png",
+        "https://bakirk.github.io/Praksa/assets/icons/icon-144x144.png",
+        "https://bakirk.github.io/Praksa/assets/icons/icon-152x152.png",
+        "https://bakirk.github.io/Praksa/assets/icons/icon-192x192.png",
+        "https://bakirk.github.io/Praksa/assets/icons/icon-384x384.png",
+        "https://bakirk.github.io/Praksa/assets/icons/icon-512x512.png",
+        "https://bakirk.github.io/Praksa/assets/icons/icon-72x72.png",
+        "https://bakirk.github.io/Praksa/assets/icons/icon-96x96.png",
+        "https://bakirk.github.io/Praksa/assets/images/hero.svg",
+        "https://bakirk.github.io/Praksa/assets/images/logo.svg",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/AUTHORS.txt",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/LICENSE.txt",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/external/jquery/jquery.js",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_444444_256x240.png",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_555555_256x240.png",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_777620_256x240.png",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_777777_256x240.png",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_cc0000_256x240.png",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_ffffff_256x240.png",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/index.html",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.css",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.js",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.min.css",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.min.js",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.structure.css",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.structure.min.css",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.theme.css",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.theme.min.css",
+        "https://bakirk.github.io/Praksa/assets/jquery-ui/package.json",
+        "https://bakirk.github.io/Praksa/assets/menu/menu.json",
+        "https://bakirk.github.io/Praksa/assets/toolbar-icons/toolbar-icons.json",
+        "https://bakirk.github.io/Praksa/hero.22d69f16f0cacc97280b.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://bakirk.github.io/Praksa/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://bakirk.github.io/Praksa/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://bakirk.github.io/Praksa/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://bakirk.github.io/Praksa/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://bakirk.github.io/Praksa/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://bakirk.github.io/Praksa/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://bakirk.github.io/Praksa/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://bakirk.github.io/Praksa/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://bakirk.github.io/Praksa/assets/images/hero.svg": "09c42aa7f7d70416b30d185bd9bfd80cfafd9f1b",
+    "https://bakirk.github.io/Praksa/assets/images/logo.svg": "7b5956ec177d6e7ee54d6b2063f605b81bca3203",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/AUTHORS.txt": "473838337fabf511766651e7ce0f6b91c13dff3c",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/LICENSE.txt": "c8d65bbd24dc825b96df54ea87caf228131c5379",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/external/jquery/jquery.js": "567273b96aa7ceabd9afe987a78d05d6045b00f9",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_444444_256x240.png": "69011104e870704cf45910d74bed5938f9062891",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_555555_256x240.png": "244bd9b7c3b1c4f7ef72de31f67804faff213715",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_777620_256x240.png": "d20567fd436991539eafd65c3bde77d82a656012",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_777777_256x240.png": "4fc6b1449c73f5d10489c104225ebe326a4016ba",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_cc0000_256x240.png": "1c7fc1ab71ed0d9fa051f07c7e8f43467121ebf7",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_ffffff_256x240.png": "1769aa84191332e981245146067080ee4faa592a",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/index.html": "6e2179fe9545541a9f477b263ae932d061e775d0",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.css": "f45e200dd5d2102586f487d6969fcd17573ba258",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.js": "bb29ef940e8a15144a4df2b5c68e944087934bd2",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.min.css": "8366128e32a0fd429eb64d6aeaa0dca535a8be27",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.min.js": "e045cf3abc14f3d1489828d51a47dd8fb10db197",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.structure.css": "9eee83a3b834d232a20af1ee8e21cfdd2725f966",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.structure.min.css": "54accad7f853e182d65725b7fe378af1f1890204",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.theme.css": "4da783c80fa285f73a8425382fcd2e990ac2e561",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.theme.min.css": "a43229524d685f66f73656edb8d01a4e0826bd41",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/package.json": "d46fede46619fc71f7e4ee8401169f70aeefedd0",
+    "https://bakirk.github.io/Praksa/assets/menu/menu.json": "82ca39bdbfb29043fe4b34b73813b8fe7e765ef2",
+    "https://bakirk.github.io/Praksa/assets/toolbar-icons/toolbar-icons.json": "f00ab55f7546d235e9cb6ffad11e8c9634109818",
+    "https://bakirk.github.io/Praksa/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "https://bakirk.github.io/Praksa/hero.22d69f16f0cacc97280b.svg": "09c42aa7f7d70416b30d185bd9bfd80cfafd9f1b",
+    "https://bakirk.github.io/Praksa/index.html": "409105f28c323e491d8bed018ef46161a1b05cdd",
+    "https://bakirk.github.io/Praksa/main-es2015.ff721de6827c2ae1f4cf.js": "a9eca1d68b12e99a68a31d2bb4695af8014cd2bc",
+    "https://bakirk.github.io/Praksa/main-es5.ff721de6827c2ae1f4cf.js": "bc9d05720687aae928b71e520a76970769dd0712",
+    "https://bakirk.github.io/Praksa/manifest.webmanifest": "2aded1b4743dc232ea6e48618de2179953ddfcdc",
+    "https://bakirk.github.io/Praksa/polyfills-es2015.690002c25ea8557bb4b0.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
+    "https://bakirk.github.io/Praksa/polyfills-es5.9e286f6d9247438cbb02.js": "89222a28dbabb780fc372d33834080e0cd3083d9",
+    "https://bakirk.github.io/Praksa/runtime-es2015.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "https://bakirk.github.io/Praksa/runtime-es5.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "https://bakirk.github.io/Praksa/styles.75967754a51b217b8339.css": "5a51f2f0451390aee5206f48ec277c192b772914"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
