@@ -14,9 +14,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AgGridModule } from 'ag-grid-angular';
 
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
@@ -25,8 +27,6 @@ import { HeroImageComponent } from './hero-image/hero-image.component';
 import { AppNavToolbarComponent } from './navbar/app-nav-toolbar/app-nav-toolbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavService } from './services/Sidenav.service';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -55,7 +55,7 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     MatGridListModule,
     AgGridModule.withComponents([SelectRendererComponent]),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerImmediately' }),
   ],
   providers: [SidenavService],
   bootstrap: [AppComponent],

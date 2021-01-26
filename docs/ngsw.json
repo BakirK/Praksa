@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1611675695335,
+  "timestamp": 1611680634556,
   "index": "https://bakirk.github.io/Praksa/index.html",
   "assetGroups": [
     {
@@ -10,8 +10,8 @@
       "urls": [
         "https://bakirk.github.io/Praksa/favicon.ico",
         "https://bakirk.github.io/Praksa/index.html",
-        "https://bakirk.github.io/Praksa/main-es2015.ff721de6827c2ae1f4cf.js",
-        "https://bakirk.github.io/Praksa/main-es5.ff721de6827c2ae1f4cf.js",
+        "https://bakirk.github.io/Praksa/main-es2015.60ae193bdd1534359d0d.js",
+        "https://bakirk.github.io/Praksa/main-es5.60ae193bdd1534359d0d.js",
         "https://bakirk.github.io/Praksa/manifest.webmanifest",
         "https://bakirk.github.io/Praksa/polyfills-es2015.690002c25ea8557bb4b0.js",
         "https://bakirk.github.io/Praksa/polyfills-es5.9e286f6d9247438cbb02.js",
@@ -26,6 +26,7 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "urls": [
+        "https://bakirk.github.io/Praksa/assets/icons/apple-touch-icon.png",
         "https://bakirk.github.io/Praksa/assets/icons/icon-128x128.png",
         "https://bakirk.github.io/Praksa/assets/icons/icon-144x144.png",
         "https://bakirk.github.io/Praksa/assets/icons/icon-152x152.png",
@@ -64,6 +65,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
+    "https://bakirk.github.io/Praksa/assets/icons/apple-touch-icon.png": "06435f694e91881954ef788848d600281735d69f",
     "https://bakirk.github.io/Praksa/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "https://bakirk.github.io/Praksa/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "https://bakirk.github.io/Praksa/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
@@ -83,7 +85,7 @@
     "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_777777_256x240.png": "4fc6b1449c73f5d10489c104225ebe326a4016ba",
     "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_cc0000_256x240.png": "1c7fc1ab71ed0d9fa051f07c7e8f43467121ebf7",
     "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_ffffff_256x240.png": "1769aa84191332e981245146067080ee4faa592a",
-    "https://bakirk.github.io/Praksa/assets/jquery-ui/index.html": "6e2179fe9545541a9f477b263ae932d061e775d0",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/index.html": "e1d345ea466c833697ecc517882b1a9bc80e2c3d",
     "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.css": "f45e200dd5d2102586f487d6969fcd17573ba258",
     "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.js": "bb29ef940e8a15144a4df2b5c68e944087934bd2",
     "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.min.css": "8366128e32a0fd429eb64d6aeaa0dca535a8be27",
@@ -97,9 +99,9 @@
     "https://bakirk.github.io/Praksa/assets/toolbar-icons/toolbar-icons.json": "f00ab55f7546d235e9cb6ffad11e8c9634109818",
     "https://bakirk.github.io/Praksa/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
     "https://bakirk.github.io/Praksa/hero.22d69f16f0cacc97280b.svg": "09c42aa7f7d70416b30d185bd9bfd80cfafd9f1b",
-    "https://bakirk.github.io/Praksa/index.html": "409105f28c323e491d8bed018ef46161a1b05cdd",
-    "https://bakirk.github.io/Praksa/main-es2015.ff721de6827c2ae1f4cf.js": "a9eca1d68b12e99a68a31d2bb4695af8014cd2bc",
-    "https://bakirk.github.io/Praksa/main-es5.ff721de6827c2ae1f4cf.js": "bc9d05720687aae928b71e520a76970769dd0712",
+    "https://bakirk.github.io/Praksa/index.html": "1e86ea328dd5b1eb3a44ebcaaf51253a6d2f88b0",
+    "https://bakirk.github.io/Praksa/main-es2015.60ae193bdd1534359d0d.js": "c3e539a2c4c0f97628efe605db93e1f6eff76b48",
+    "https://bakirk.github.io/Praksa/main-es5.60ae193bdd1534359d0d.js": "dd77677e8be002f0134ab4cf1509e46e7475820c",
     "https://bakirk.github.io/Praksa/manifest.webmanifest": "2aded1b4743dc232ea6e48618de2179953ddfcdc",
     "https://bakirk.github.io/Praksa/polyfills-es2015.690002c25ea8557bb4b0.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "https://bakirk.github.io/Praksa/polyfills-es5.9e286f6d9247438cbb02.js": "89222a28dbabb780fc372d33834080e0cd3083d9",
