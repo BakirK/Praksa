@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1611680634556,
+  "timestamp": 1611682868251,
   "index": "https://bakirk.github.io/Praksa/index.html",
   "assetGroups": [
     {
@@ -85,7 +85,7 @@
     "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_777777_256x240.png": "4fc6b1449c73f5d10489c104225ebe326a4016ba",
     "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_cc0000_256x240.png": "1c7fc1ab71ed0d9fa051f07c7e8f43467121ebf7",
     "https://bakirk.github.io/Praksa/assets/jquery-ui/images/ui-icons_ffffff_256x240.png": "1769aa84191332e981245146067080ee4faa592a",
-    "https://bakirk.github.io/Praksa/assets/jquery-ui/index.html": "e1d345ea466c833697ecc517882b1a9bc80e2c3d",
+    "https://bakirk.github.io/Praksa/assets/jquery-ui/index.html": "294bfbcd1d8d01a85d516e1875e21f1acce44ae8",
     "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.css": "f45e200dd5d2102586f487d6969fcd17573ba258",
     "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.js": "bb29ef940e8a15144a4df2b5c68e944087934bd2",
     "https://bakirk.github.io/Praksa/assets/jquery-ui/jquery-ui.min.css": "8366128e32a0fd429eb64d6aeaa0dca535a8be27",
@@ -99,7 +99,7 @@
     "https://bakirk.github.io/Praksa/assets/toolbar-icons/toolbar-icons.json": "f00ab55f7546d235e9cb6ffad11e8c9634109818",
     "https://bakirk.github.io/Praksa/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
     "https://bakirk.github.io/Praksa/hero.22d69f16f0cacc97280b.svg": "09c42aa7f7d70416b30d185bd9bfd80cfafd9f1b",
-    "https://bakirk.github.io/Praksa/index.html": "1e86ea328dd5b1eb3a44ebcaaf51253a6d2f88b0",
+    "https://bakirk.github.io/Praksa/index.html": "26b8eb4b9140ae6a23488e2f5367e315fe3b6d92",
     "https://bakirk.github.io/Praksa/main-es2015.60ae193bdd1534359d0d.js": "c3e539a2c4c0f97628efe605db93e1f6eff76b48",
     "https://bakirk.github.io/Praksa/main-es5.60ae193bdd1534359d0d.js": "dd77677e8be002f0134ab4cf1509e46e7475820c",
     "https://bakirk.github.io/Praksa/manifest.webmanifest": "2aded1b4743dc232ea6e48618de2179953ddfcdc",
